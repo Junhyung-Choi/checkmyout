@@ -1,5 +1,5 @@
 {% block content %}
-<form method = "post" class = "post">
+<form method = "post" class = "post" action = "/home/">
     {% csrf_token %}
     {{form.as_p}}
     <button type="submit" class = "btn"> 저장하기 </button>
@@ -8,7 +8,7 @@
 <form method = "post" class = "post" action = "/comeback/">
     {% csrf_token %}
     {% for o in objs %}
-    <button onclick = > {{ o.name }}  |  {{ o.out_time }}</button><br/>
+    <button name = "clickid" value = {{o.id}}> {{ o.name }}  |  {{ o.out_time }}</button><br/>
     {% endfor %}
 </form>
 {% endblock %}

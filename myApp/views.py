@@ -19,4 +19,9 @@ def home(request):
     return render(request,'home.html',context=context)
 
 def comeback(request):
-    return render(request,'home.html', context = {})
+    drecord = Outer.objects.get(id = request.POST['clickid'])
+    drecord.delete()
+    form = OuterForm
+    objs = Outer.objects.all()
+    context = {'form' : form, 'objs' : objs}
+    return render(request,'home.html',context=context)
