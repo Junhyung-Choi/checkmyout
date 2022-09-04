@@ -1,0 +1,12 @@
+{% block content %}
+<form method = "post" class = "post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class = "btn"> 저장하기 </button>
+</form>
+
+{% for o in objs %}
+<button> {{ o.name }} </button>
+<br/>
+{% endfor %}
+{% endblock %}
