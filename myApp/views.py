@@ -17,3 +17,6 @@ def home(request):
         objs = Outer.objects.all()
     context = {'form' : form, 'objs' : objs}
     return render(request,'home.html',context=context)
+
+def comeback(request):
+    return render(request,'home.html', context = {})

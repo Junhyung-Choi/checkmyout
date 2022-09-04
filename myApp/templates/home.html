@@ -5,8 +5,10 @@
     <button type="submit" class = "btn"> 저장하기 </button>
 </form>
 
-{% for o in objs %}
-<button> {{ o.name }} </button>
-<br/>
-{% endfor %}
+<form method = "post" class = "post" action = "/comeback/">
+    {% csrf_token %}
+    {% for o in objs %}
+    <button onclick = > {{ o.name }}  |  {{ o.out_time }}</button><br/>
+    {% endfor %}
+</form>
 {% endblock %}
