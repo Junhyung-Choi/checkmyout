@@ -1,0 +1,16 @@
+{% block content %}
+<form method = "post" class = "post" action = "/setevent/" enctype="multipart/form-data">
+    <h1 >{{ event.name }}</h1>
+    {% csrf_token %}
+    <input type="text" name="school">
+    <input type="file" name="uploadedfile">
+    <!-- {{form.as_p}} -->
+    <button type="submit" class = "btn" name="eventid" value={{event.id}}> 명단 생성 </button>
+</form>
+<br/>
+<br/>
+<form method = "get"  action = "/home2">
+    {% csrf_token %}
+    <button type="submit" name = "eventid" value = {{event.id}}> 입장</button>
+</form>
+{% endblock %}

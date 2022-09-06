@@ -1,0 +1,16 @@
+{% block content %}
+<form method = "post" class = "post" action = "/start/">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class = "btn"> 이벤트 생성 </button>
+</form>
+
+
+    {% for ev in events %}
+    <form method = "get"  action = "/setevent">
+    {% csrf_token %}
+    <button type="submit" name = "eventid" value = {{ev.id}}> {{ ev.name }}</button>
+    </form>
+    <br/>
+    {% endfor %}
+{% endblock %}

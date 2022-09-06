@@ -16,10 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from myApp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.home),
     path('',views.home),
     path('comeback/',views.comeback),
+    path('start/',views.start),
+    path('setevent/',views.setEvent),
+    path('home2/', views.home2),
+    path('find/', views.find),
+    path('comeback2/', views.comeback2),
+
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

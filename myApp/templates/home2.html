@@ -1,0 +1,25 @@
+{% block content %}
+<h1 >{{ event.name }}</h1>
+<form method = "post" class = "post" action = "/find/">
+    {% csrf_token %}
+    <input type="text" name="name">
+    <button type="submit" class = "btn" name = "eventid" value = {{event.id}}> 검색하기 </button>
+</form>
+
+<form method = "post" class = "post" action = "/home2/">
+    {% csrf_token %}
+    {% for p in people %}
+    <input name = "eventid" value = {{event.id}}></input>
+    <button name = "clickid" value = {{p.id}}> {{ p.school }}  |  {{ p.name }}</button><br/>
+    {% endfor %}
+</form>
+<br/>
+<br/>
+<form method = "post" class = "post" action = "/comeback2/">
+    {% csrf_token %}
+    {% for o in objs %}
+    <input name = "eventid" value = {{event.id}}></input>
+    <button name = "clickid" value = {{o.id}}> {{ o.name }} |  {{ o.school }}   |  {{ o.out_time }} </button><br/>
+    {% endfor %}
+</form>
+{% endblock %}
